@@ -1,0 +1,27 @@
+name: Dagger
+"on":
+  push:
+    branches:
+    - '*'
+  pull_request:
+    branches:
+    - '*'
+  schedule:
+  - cron: 01 13 * * SAT
+
+jobs:
+  dagger:
+    name: Dagger
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '>=1.21.1'
+      - name: Run with Dagger
+        uses: dagger/dagger-for-github@v6
+        with:
+          version: "0.9.3"
+          verb: run
+          workdir: "."
+          args: go run main.go
