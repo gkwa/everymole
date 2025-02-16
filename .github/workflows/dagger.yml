@@ -19,7 +19,7 @@ jobs:
         with:
           go-version: '>=1.21.1'
       - name: Run with Dagger
-        uses: dagger/dagger-for-github@31393402b06d9d3524e2bc67a14f63d1462821ab # v7
+        uses: dagger/dagger-for-github@b81317a976cb7f7125469707321849737cd1b3bc # v7
         with:
           version: "0.9.3"
           verb: run
